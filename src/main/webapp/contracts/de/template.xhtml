@@ -10,7 +10,9 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 	<h:body>
 		<div id="container">
 			<div id="header">
-				<p>Beispielanwendung <b>My-Aktion</b> – Workshop Java EE 7</p>
+				<ui:insert name="header">
+					[<p>Beispielanwendung <b>My-Aktion</b> – Workshop Java EE 7</p>]
+				</ui:insert>
 			</div>
 			<div id="content">
 				<ui:insert name="content">
