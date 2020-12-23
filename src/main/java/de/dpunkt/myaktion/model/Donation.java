@@ -44,5 +44,9 @@ public class Donation {
 		this.account = account;
 	}
 
-	
+	public String toString() {
+		String str = new String();
+		str += "Donatioon: " + donorName + ":" + amount; 
+		return str;
+	}
 }

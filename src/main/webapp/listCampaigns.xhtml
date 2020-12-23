@@ -8,6 +8,9 @@
 
 <f:view contracts="#{view.locale.language}">
 	<ui:composition template="/template.xhtml">
+		<ui:define name="header">
+			<h1>#{msg['listCampaigns.header']}</h1>
+		</ui:define>
 		<ui:define name="content">
 			<h1>#{msg['listCampaigns.my_campaigns']}</h1>
 			<h:form>
@@ -48,7 +51,7 @@
 				</h:dataTable>
 				
 				<h:commandButton value="#{msg['listCampaigns.add_campaign']}" action="#{listCampaignsController.doAddCampaign}" />
-				
+				<h:messages style="color: red;" />
 			</h:form>
 		</ui:define>
 	</ui:composition>

@@ -24,7 +24,7 @@ public class CampaignListProducer implements Serializable {
 		return campaigns;
 	}
 	
-	public List<Campaign> createMockCampaigns() {
+	private List<Campaign> createMockCampaigns() {
 		Donation donation1 = new Donation();
 		donation1.setDonorName("Heinz Schmidt");
 		donation1.setAmount(20d);
@@ -40,10 +40,33 @@ public class CampaignListProducer implements Serializable {
 		donation2.setStatus(Status.IN_PROCESS);
 		donation2.setAccount(new Account(donation2.getDonorName(),
 		"YYY Bank","DE44864275310000654321"));
+
+		Donation donation3 = new Donation();
+		donation3.setDonorName("Franz Schubert");
+		donation3.setAmount(100d);
+		donation3.setReceiptRequested(true);
+		donation3.setStatus(Status.TRANSFERRED);
+		donation3.setAccount(new Account(donation3.getDonorName(),
+		"ZZZ Bank","DE44876543210078123456"));
+
+		Donation donation4 = new Donation();
+		donation4.setDonorName("Max Mustermann");
+		donation4.setAmount(200d);
+		donation4.setReceiptRequested(true);
+		donation4.setStatus(Status.TRANSFERRED);
+		donation4.setAccount(new Account(donation4.getDonorName(),
+		"AAA Bank","DE44876543210000123456"));
+
 		
-		List<Donation> spenden = new LinkedList<>();
-		spenden.add(donation1);
-		spenden.add(donation2);
+		
+		
+		List<Donation> spenden1 = new LinkedList<>();
+		spenden1.add(donation1);
+		spenden1.add(donation2);
+
+		List<Donation> spenden2 = new LinkedList<>();
+		spenden2.add(donation3);
+		spenden2.add(donation4);
 		
 		Campaign campaign1 = new Campaign();
 		campaign1.setName("Trikots für A-Jugend");
@@ -53,7 +76,7 @@ public class CampaignListProducer implements Serializable {
 		campaign1.setId(1L);
 		campaign1.setAccount(new Account("Max Mustermann", "ABC Bank",
 		"DE44123456780100200300"));
-		campaign1.setDonations(spenden);
+		campaign1.setDonations(spenden1);
 		
 		
 		Campaign campaign2 = new Campaign();
@@ -63,7 +86,7 @@ public class CampaignListProducer implements Serializable {
 		campaign2.setDonationMinimum(25d);
 		campaign2.setId(2L);
 		campaign2.setAccount(campaign1.getAccount());
-		campaign2.setDonations(spenden);
+		campaign2.setDonations(spenden2);
 
 		List<Campaign> ret = new LinkedList<>();
 		ret.add(campaign1);
