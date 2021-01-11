@@ -25,15 +25,17 @@ public class ListCampaignsController implements Serializable {
 		return Pages.EDIT_CAMPAIGN;
 	}
 	public String doEditDonationForm(Campaign campaign) {
-		System.out.println("Edit Donation Form of Campaign " + campaign);
-	return Pages.EDIT_DONATION_FORM;
+		campaignProducer.setSelectedCampaign(campaign);	
+		return Pages.EDIT_DONATION_FORM;
 	}
 	public String doListDonations(Campaign campaign) {
-		campaign.getDonations().forEach(don->{
-			System.out.println(printFacesContextMsg( "Camp: " + campaign.getName() + " <<<" + don.toString() ));
-		});
+		campaignProducer.setSelectedCampaign(campaign);
 		
-	return Pages.LIST_DONATIONS;
+//		campaign.getDonations().forEach(don->{
+//			System.out.println(printFacesContextMsg( "Camp: " + campaign.getName() + " <<<" + don.toString() ));
+//		});
+		
+		return Pages.LIST_DONATIONS;
 	}
 	public void doDeleteCampaign(Campaign campaign) {
 		
@@ -50,6 +52,3 @@ public class ListCampaignsController implements Serializable {
 	
 	
 }
-
-
-
